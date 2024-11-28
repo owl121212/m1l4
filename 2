@@ -10,6 +10,11 @@ def send_mem(message):
     img_name = random.choice(images)
     with open('images/mem1.jpg', 'rb') as f:  
         bot.send_photo(message.chat.id, f)  
+# Обработчик команды '/heh'
+@bot.message_handler(commands=['heh'])
+def send_heh(message):
+    count_heh = int(message.text.split()[1]) if len(message.text.split()) > 1 else 5
+    bot.reply_to(message, "he" * count_heh)
 
    # Обработчик команды '/start' и '/hello'
 @bot.message_handler(commands=['start', 'hello'])
